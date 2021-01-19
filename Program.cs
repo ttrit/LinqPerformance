@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace LinqPerformance
@@ -32,6 +33,40 @@ namespace LinqPerformance
                 Console.WriteLine(student.Name);
             }
 
+        }
+
+        public static long Measure(Action a)
+        {
+            //
+            // Quick Wormup.
+            //
+            Console.WriteLine(" [1] Warm Up  ... ");
+
+            for (int i = 0; i < 10; i++)
+            {
+                a();
+            }
+
+            double avg = 0;
+
+            Console.WriteLine(" [2] Running ... ");
+
+            for (int i = 0; i < 10; i++)
+            {
+                Stopwatch w = new Stopwatch();
+                w.Start();
+                {
+                    a();
+                }
+                w.Stop();
+
+                avg += w.ElapsedMilliseconds;
+                Console.WriteLine($" [3] Took: {w.ElapsedMilliseconds} ms");
+            }
+
+            Console.WriteLine($" [4] AVG: {avg / 10} ms");
+
+            return 0;
         }
     }
 }
