@@ -35,3 +35,11 @@ Linq variant in runtime
 | OrderByAndToArray |    .NET 4.6.1 |    .NET 4.6.1 |               NA |             NA |             NA |               NA |     ? |       ? |        - |        - |        - |         - |
 | OrderByAndToArray | .NET Core 3.1 | .NET Core 3.1 | 20,054,017.40 ns | 187,131.318 ns | 175,042.751 ns | 20,034,042.19 ns |     ? |       ? | 468.7500 | 468.7500 | 468.7500 | 1600418 B |
 | OrderByAndToArray | .NET Core 5.0 | .NET Core 5.0 | 17,599,039.18 ns | 185,539.950 ns | 154,934.261 ns | 17,576,518.75 ns |     ? |       ? | 468.7500 | 468.7500 | 468.7500 | 1600272 B |
+
+Linq last
+
+|     Method |       Mean |     Error |    StdDev |     Median | Ratio | Gen 0 | Gen 1 | Gen 2 | Allocated |
+|----------- |-----------:|----------:|----------:|-----------:|------:|------:|------:|------:|----------:|
+|       Linq | 10.8534 ns | 0.1891 ns | 0.1768 ns | 10.7666 ns |  1.00 |     - |     - |     - |         - |
+|       Last |  0.6477 ns | 0.0426 ns | 0.0700 ns |  0.6149 ns |  0.07 |     - |     - |     - |         - |
+| LastBetter |  0.5884 ns | 0.0424 ns | 0.0435 ns |  0.5655 ns |  0.05 |     - |     - |     - |         - |
