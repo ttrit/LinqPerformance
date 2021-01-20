@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,16 +13,18 @@ namespace LinqPerformance
         {
             //DeferredExecutionAndLazyEvaluation();
 
-            var rnd = new Random(42);
-            var array = Enumerable.Repeat(rnd, 100000).Select(r => r.Next()).ToArray();
+            //var rnd = new Random(42);
+            //var array = Enumerable.Repeat(rnd, 100000).Select(r => r.Next()).ToArray();
 
-            var benchmark = new Benchmark(array);
-            Console.WriteLine($"{"Test",-20}\t{"Iterations",-20}\t{"Average",-20}\t{"Total",-20}");
-            var results = benchmark.Run();
-            foreach (var r in results)
-            {
-                Console.WriteLine($"{r.Name,-20}\t{r.Iterations,-20}\t{r.AverageTime.TotalSeconds,-20}\t{r.TotalTime.TotalSeconds,-20}");
-            }
+            //var benchmark = new Benchmark(array);
+            //Console.WriteLine($"{"Test",-20}\t{"Iterations",-20}\t{"Average",-20}\t{"Total",-20}");
+            //var results = benchmark.Run();
+            //foreach (var r in results)
+            //{
+            //    Console.WriteLine($"{r.Name,-20}\t{r.Iterations,-20}\t{r.AverageTime.TotalSeconds,-20}\t{r.TotalTime.TotalSeconds,-20}");
+            //}
+
+            var summary = BenchmarkRunner.Run<BenchmarkLinqRuntime>();
 
             Console.ReadKey();
         }
