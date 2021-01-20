@@ -24,7 +24,7 @@ namespace LinqPerformance
             //    Console.WriteLine($"{r.Name,-20}\t{r.Iterations,-20}\t{r.AverageTime.TotalSeconds,-20}\t{r.TotalTime.TotalSeconds,-20}");
             //}
 
-            var summary = BenchmarkRunner.Run<BenchmarkLinqLast>();
+            var summary = BenchmarkRunner.Run<BenchmarkLinqSelect>();
 
             Console.ReadKey();
         }
