@@ -24,7 +24,7 @@ namespace LinqPerformance
             //    Console.WriteLine($"{r.Name,-20}\t{r.Iterations,-20}\t{r.AverageTime.TotalSeconds,-20}\t{r.TotalTime.TotalSeconds,-20}");
             //}
 
-            var summary = BenchmarkRunner.Run<BenchmarkLinqSelect>();
+            var summary = BenchmarkRunner.Run<BenchmarkLinqWhere>();
 
             Console.ReadKey();
         }
@@ -40,8 +40,8 @@ namespace LinqPerformance
             };
 
             var cLetterName = from n in names
-                                                  where n.Name.StartsWith("C")
-                                                  select n;
+                              where n.Name.StartsWith("C")
+                              select n;
 
             foreach (var student in cLetterName)
             {
@@ -50,6 +50,7 @@ namespace LinqPerformance
 
         }
 
+        #region BenchmarkOldCode
         private class Benchmark
         {
             private readonly int[] _array;
@@ -165,5 +166,6 @@ namespace LinqPerformance
 
             return 0;
         }
+        #endregion
     }
 }
